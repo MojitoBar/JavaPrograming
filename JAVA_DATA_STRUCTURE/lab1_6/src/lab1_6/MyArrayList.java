@@ -6,17 +6,16 @@ public class MyArrayList<T> {
 	private T[] arr;
 	private int num;
 	private int maxSize = 10;
-	
+
 	public MyArrayList() {
-		// elements = (E[]) new Object[10];
 		arr = (T[]) new Object[maxSize];
 		num = 0;
 	}
-	
+
 	public int size() {
 		return num;
 	}
-	
+
 	public void get(int n) {
 		if(num - 1 < n)
 		{
@@ -25,40 +24,46 @@ public class MyArrayList<T> {
 		else
 			System.out.println(arr[n]);
 	}
-	
+
 	// index에 값을 넣는 add
 	public boolean add(int index, T n) {
-		if(num == maxSize) {
-			maxSize *= 2;
-			T[] temp = (T[]) new Object[maxSize];
-			
-			for (int i = 0; i < arr.length; i++) {
-				temp[i] = arr[i];
-			}
-			
-			arr = (T[]) new Object[maxSize];
+		if(index <= num) {
+			if(num == maxSize) {
+				maxSize *= 2;
+				T[] temp = (T[]) new Object[maxSize];
 
-			for (int i = 0; i < temp.length; i++) {
-				arr[i] = temp[i];
+				for (int i = 0; i < arr.length; i++) {
+					temp[i] = arr[i];
+				}
+
+				arr = (T[]) new Object[maxSize];
+
+				for (int i = 0; i < temp.length; i++) {
+					arr[i] = temp[i];
+				}
+
+				for(int i = num; i < index; i--) {
+					arr[i] = arr[i -1];
+				}
+				arr[index] = n;
+				num++;
+				return true;
 			}
-			
-			for(int i = num; i < index; i--) {
-				arr[i] = arr[i -1];
+			else {
+				for(int i = num; i > index; i--) {
+					arr[i] = arr[i -1];
+				}
+				arr[index] = n;
+				num++;
+				return true;
 			}
-			arr[index] = n;
-			num++;
-			return true;
 		}
 		else {
-			for(int i = num; i > index; i--) {
-				arr[i] = arr[i -1];
-			}
-			arr[index] = n;
-			num++;
-			return true;
+			System.out.println("잘못된 인덱스 값 입니다.");
+			return false;
 		}
 	}
-	
+
 	// 맨 뒤에 값을 넣는 add
 	public boolean add(T n) {
 		if(num == maxSize) {
@@ -68,13 +73,13 @@ public class MyArrayList<T> {
 			for (int i = 0; i < arr.length; i++) {
 				temp[i] = arr[i];
 			}
-			
+
 			arr = (T[]) new Object[maxSize];
 
 			for (int i = 0; i < temp.length; i++) {
 				arr[i] = temp[i];
 			}
-			
+
 			arr[num] = n;
 			num++;
 			return true;
@@ -85,20 +90,26 @@ public class MyArrayList<T> {
 			return true;
 		}
 	}
-	
+
 	public T remove(int n) {
-		T removeData = arr[n];
-		for(int i = n; i < num; i++) {
-			arr[n] = arr[n + 1];
+		if (n < num) {
+			T removeData = arr[n];
+			for(int i = n; i < num; i++) {
+				arr[n] = arr[n + 1];
+			}
+			num--;
+			return removeData;
 		}
-		num--;
-		return removeData;
+		else {
+			System.out.println("잘못된 인덱스 값 입니다.");
+			return null;			
+		}
 	}
 
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		
+
 		sb.append("list= ");
 		for (int i = 0; i < num; i++) {
 			sb.append(arr[i]);

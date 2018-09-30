@@ -10,10 +10,10 @@ public class MyArrayListTest {
 		Scanner input = new Scanner(System.in);
 
 		MyArrayList<Integer> list = new MyArrayList<Integer>();
-		
+
 		int menu = 0;
 		int index = 0;
-		int element = 0;
+		Integer element = 0;
 		do {
 			System.out.print(" 1:인덱스조회 2:전체조회 3:길이조회 4:삽입 5:인덱스삽입 6:인덱스삭제 7:종료 ---> ");
 			menu = input.nextInt();
@@ -46,15 +46,16 @@ public class MyArrayListTest {
 				index = input.nextInt();    
 				System.out.print("정수값 입력: ");
 				element = input.nextInt();
-				
+
 				list.add(index, element);    // 완성하세요.
 				break;
 			case 6:
 				System.out.println("인덱스 위치의 원소를 삭제합니다.");
 				System.out.print("인덱스 입력: ");
-				index = input.nextInt(); 
+				index = input.nextInt();	
 				element = list.remove(index);  // 완성하세요.
-				System.out.println(element);
+				if (element != null)
+					System.out.println(element);					
 				break;
 			case 7:
 				System.out.println("종료합니다.");   
