@@ -51,9 +51,9 @@ public class MyArrayTree {
 			if(2 * index + 2 < treeArray.length)
 				inorder(2 * index + 2);
 		}
-		}
-	
-		// 루트노드부터 리프노드에 이르기까지 왼쪽 자식들을 출력하는 메소드
+	}
+
+	// 루트노드부터 리프노드에 이르기까지 왼쪽 자식들을 출력하는 메소드
 	public void printLeft() {
 		int i = 0;
 		while(i <= treeArray.length) {
