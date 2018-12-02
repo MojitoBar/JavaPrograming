@@ -1,18 +1,18 @@
-package lab10_2;
+package lab10_1;
 
 import java.util.Scanner;
 
-public class UndirectedListGraphTest {
+public class DirectedMatrixGraphTest {
 	public static void main(String[] args) {
-		System.out.println("lab10_2 : 주동석");
+		System.out.println("lab10_1 : 주동석");
 
 		// 정점 수 n 입력
 		Scanner scan = new Scanner(System.in);
 		System.out.print("정점 수 입력: ");
 		int n = scan.nextInt();
 
-		// 정점 수가 n인 무방향 그래프를 생성
-		UndirectedListGraph graph = new UndirectedListGraph(n);
+		// 정점 수가 n인 방향 그래프를 생성
+		DirectedMatrixGraph graph = new DirectedMatrixGraph(n);
 
 		// 간선 수 e 입력
 		System.out.print("간선 수 입력: ");

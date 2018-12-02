@@ -1,10 +1,9 @@
-package lab10_2;
-
+package hw10_2;
 import java.util.Scanner;
 
 public class UndirectedListGraphTest {
 	public static void main(String[] args) {
-		System.out.println("lab10_2 : 주동석");
+		System.out.println("hw10_2 : 주동석");
 
 		// 정점 수 n 입력
 		Scanner scan = new Scanner(System.in);
@@ -32,6 +31,12 @@ public class UndirectedListGraphTest {
 			System.out.print("정점 " + i + "에 인접한 정점 = ");
 			graph.printAdjacentVertices(i);
 			System.out.println();
+		}
+		
+		// 각 정점을 시작정점으로 한 너비우선탐색 결과를 출력
+		for(int i = 0; i < n; i++) {
+			System.out.print("정점 " + i + "의 넓이우선탐색 결과 = ");
+			graph.breadthFirstSearch(i);
 		}
 	}
 }
