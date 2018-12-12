@@ -1,6 +1,9 @@
 package hw11_1;
 
 public class MyIntegerSort {
+	public static void mergeSort(int[] array) {
+		mergeSort(array, 0, array.length-1);
+	}
 	public static void mergeSort(int[] array, int lb, int ub) {
 		int middle = 0;
 		if(lb < ub) {

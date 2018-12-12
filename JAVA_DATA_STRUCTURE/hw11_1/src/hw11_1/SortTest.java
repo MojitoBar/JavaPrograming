@@ -23,7 +23,7 @@ public class SortTest {
 		System.out.println();
 		
 		MyIntegerSort myIntegerSort = new MyIntegerSort();
-		myIntegerSort.mergeSort(array, 0, array.length-1);
+		myIntegerSort.mergeSort(array);
 		
 		System.out.print("정렬 후 배열: ");
 		for(int i = 0; i < n; i++) {
